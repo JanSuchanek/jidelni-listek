@@ -1,0 +1,11 @@
+{block content}
+
+<h1 n:block="title">Smazat sekci</h1>
+
+{if $section}
+	<p>Jste si jistý, že chcete smazat ‘{$section->title}’?</p>
+	{control deleteForm}
+
+{else}
+	<p>Nemohu nalézt sekci.</p>
+{/if}

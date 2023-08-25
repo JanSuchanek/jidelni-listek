@@ -1,0 +1,26 @@
+{block content}
+
+<h1 n:block="title">Kategorie</h1>
+
+<p><a n:href="add">Přidat novou kategorii</a></p>
+
+<table class="grid">
+<tr>
+	<th>Sekce:</th>
+	<th>Řazení:</th>
+	<th>Název:</th>
+	<th>&nbsp;</th>
+</tr>
+
+{foreach $categories as $category}
+<tr>
+	<td>{$category->ref("sections","section_id")->title}</td>
+	<td>{$category->sort}</td>
+	<td>{$category->title}</td>	
+	<td>
+		<a n:href="edit, $category->id">Upravit</a>
+		<a n:href="delete, $category->id">Smazat</a>
+	</td>
+</tr>
+{/foreach}
+</table>

@@ -1,0 +1,44 @@
+{block content}
+
+<h1 n:block="title">Jídelní lístek</h1>
+
+<p><a n:href="add">Přidat nové jídlo</a></p>
+
+
+{foreach $foods as $skey => $section}
+
+	<h2>{$sections[$skey]}</h2>
+
+	{foreach $section as $skey => $category}
+
+		{if $skey > 1}<h3>{$categories[$skey]}</h3>{/if}
+		
+		<table class="grid">
+		<tr>
+			<!-- {if $skey == 1}<th>Den:</th>{/if} -->
+			<th>Porce:</th>
+			<th>Název:</th>
+			<th>Cena:</th>
+			<!-- <th>Krabička/dodání:</th> -->
+			<th>&nbsp;</th>
+		</tr>
+
+		{foreach $category as $ckey => $item}
+		<tr>
+			<!-- {if $skey == 1}<td >{$days[$item["day"]]}</td>{/if} -->
+			<td>{$item["weight"]}</td>
+			<td class="w400">{$item["title"]}</td>
+			<td>{$item["price"]} Kč</td>
+			<!-- <td>{$item["delivery"]} Kč</td> -->
+			<td>
+				<a n:href="edit, $item['id']">Upravit</a>
+				<a n:href="delete, $item['id']">Smazat</a>
+			</td>		
+		</tr>
+		{/foreach}
+		</table>
+	
+	{/foreach}
+
+{/foreach}
+

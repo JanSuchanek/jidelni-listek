@@ -1,0 +1,11 @@
+{block content}
+
+<h1 n:block="title">Smazat jídlo</h1>
+
+{if $food}
+	<p>Jste si jistý, že chcete smazat ‘{$food->title}’ za ‘{$food->price} Kč’?</p>
+	{control deleteForm}
+
+{else}
+	<p>Nemohu nalézt jídlo.</p>
+{/if}

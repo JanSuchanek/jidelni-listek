@@ -1,0 +1,24 @@
+{block content}
+
+<h1 n:block="title">Sekce</h1>
+
+<p><a n:href="add">Přidat novou sekci</a></p>
+
+<table class="grid">
+<tr>
+	<th>Řazení:</th>
+	<th>Název:</th>
+	<th>&nbsp;</th>
+</tr>
+
+{foreach $sections as $section}
+<tr>
+	<td>{$section->sort}</td>
+	<td>{$section->title}</td>	
+	<td>
+		<a n:href="edit, $section->id">Upravit</a>
+		<a n:href="delete, $section->id">Smazat</a>
+	</td>
+</tr>
+{/foreach}
+</table>
